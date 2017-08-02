@@ -28,6 +28,7 @@ def getCollected(url):
 	return collected
 
 def getPassword(url):
+	data = requests.get("http://rd-13.blogspot.it/search?q=%s" % (query)).content
 	return re.findall(r', sans-serif;"><b><span style="font-size: x-large;"><u>(.*?)</u>',data)[0]
 
 
