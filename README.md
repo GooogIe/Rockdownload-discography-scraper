@@ -6,8 +6,8 @@ Scrape all album links from a given artist if present on rockdownload
 ### How to use ###
 
 Requirements:
-*Python 2.7
-*Libraries: re,requests
+-Python 2.7
+-Libraries: re,requests
 
 Run in terminal:
 '''
