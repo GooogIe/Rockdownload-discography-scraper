@@ -24,9 +24,8 @@ def getCollected(url):
 
 	links = re.findall(r'\[<b><a href="(.*?)"',data)
 	for i in range(0,len(titles)-1):
-		print ("Album: %s - %s" % (titles[i],links[i]))
-		collected.append("Album: %s - %s" % (titles[i],links[i]))
-	#return collected
+		collected.append(titles[i] + " - " +links[i])
+	return collected
 
 def getPassword(url):
 	return re.findall(r', sans-serif;"><b><span style="font-size: x-large;"><u>(.*?)</u>',data)[0]
@@ -40,7 +39,7 @@ if len(results) == 0:
  sys.exit("No artist found")
 
 for i in range(0,len(results)):
-	print str(i+1) +" - "+results[i][1]
+	print (str(i+1) +" - "+results[i][1])
 
 choice = 0
 
@@ -50,5 +49,9 @@ while True:
 		break
 	print("Invalid choice.")
 
-getCollected(results[choice-1][0])
-	
+founds = getCollected(results[choice-1][0])
+
+for album in founds:
+	print ("Album: "+album)
+
+print (getPassword(results[choice-1][0]))
