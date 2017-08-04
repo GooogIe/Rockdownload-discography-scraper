@@ -28,8 +28,8 @@ def getCollected(url):
 	return collected
 
 def getPassword(url):
-	data = requests.get("http://rd-13.blogspot.it/search?q=%s" % (query)).content
-	return re.findall(r', sans-serif;"><b><span style="font-size: x-large;"><u>(.*?)</u>',data)[0]
+	data = requests.get(url).content
+	return re.findall(r'sans-serif;"><b><span style="font-size: x-large;"><u>(.*?)</u>',data)[0]
 
 
 query = raw_input("Artist name: ")
@@ -55,4 +55,4 @@ founds = getCollected(results[choice-1][0])
 for album in founds:
 	print ("Album: "+album)
 
-print (getPassword(results[choice-1][0]))
+print ("Archive's Password: "+getPassword(results[choice-1][0]))
